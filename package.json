@@ -19,6 +19,10 @@
     "electron": "^24.1.1"
   },
   "dependencies": {
-    "electron-squirrel-startup": "^1.0.0"
+    "@google-cloud/local-auth": "^2.1.0",
+    "@google-cloud/pubsub": "^3.4.1",
+    "@google-cloud/storage": "^6.9.5",
+    "electron-squirrel-startup": "^1.0.0",
+    "googleapis": "^105.0.0"
   }
 }
