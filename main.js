@@ -69,7 +69,7 @@ loadConfiguration();
 function showNotification(body) {
     var noti = new Notification({ title: '명지전문대학교 2차 인증 코드', body: body });
     noti.show();
-    setTimeout(() => { if (noti) noti.close() }, 3000);
+    setTimeout(() => { if (noti) noti.close() }, config.remain * 1000);
 }
 
 // Gmail
