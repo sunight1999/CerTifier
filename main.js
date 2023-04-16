@@ -15,7 +15,7 @@ const { Storage } = require('@google-cloud/storage');
 const { google } = require('googleapis');
 
 const pubsub = new PubSub();
-const storage = new Storage({ keyFilename: 'credentials.json' });
+const storage = new Storage({ keyFilename: 'service_credentials.json' });
 
 const bucketName = 'certifier-client-bucket';
 // If modifying these scopes, delete token.json.
@@ -24,7 +24,8 @@ const SCOPES = ['https://www.googleapis.com/auth/gmail.readonly'];
 // created automatically when the authorization flow completes for the first
 // time.
 const TOKEN_PATH = path.join(process.cwd(), 'token.json');
-const CREDENTIALS_PATH = path.join(process.cwd(), 'credentials.json');
+const TOKEN_CREDENTIALS_PATH = path.join(process.cwd(), 'token_credentials.json');
+const SERVICE_CREDENTIALS_PATH = path.join(process.cwd(), 'service_credentials.json');
 const CONFIG_PATH = path.join(process.cwd(), 'config.json');
 
 /*
@@ -94,7 +95,7 @@ async function loadSavedCredentialsIfExist() {
 * @return {Promise<void>}
 */
 async function saveCredentials(client) {
-    const content = await fs.readFile(CREDENTIALS_PATH);
+    const content = await fs.readFile(TOKEN_CREDENTIALS_PATH);
     const keys = JSON.parse(content);
     const key = keys.installed || keys.web;
     const payload = JSON.stringify({
@@ -117,7 +118,7 @@ async function authorize() {
     }
     client = await authenticate({
         scopes: SCOPES,
-        keyfilePath: CREDENTIALS_PATH,
+        keyfilePath: TOKEN_CREDENTIALS_PATH,
     });
     if (client.credentials) {
         await saveCredentials(client);
