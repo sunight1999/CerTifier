@@ -48,6 +48,7 @@ CerTifier는 인증 메일이 오면 인증 코드만 파싱하여 알림으로 
 ![image](https://github.com/user-attachments/assets/1a05b625-97a4-4ab0-88b7-8610b68dfe8c)
 
 **+ `다른 역할 추가`를 클릭해 `저장소 관리자` 역할도 추가**
+
 ![image](https://github.com/user-attachments/assets/259c821a-9c29-43f6-aedb-10b7d84257fb)
 
 **`게시/구독 게시자`, `게시/구독 구독자`도 추가해 아래와 같이 역할이 설정되어야 함**
